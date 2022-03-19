@@ -22,5 +22,5 @@ def get_data(pth):
 
     ######
 
-    cat_vars = ['age','sex,	cp	trtbps	chol	fbs	restecg	thalachh	exng	oldpeak	slp	caa]
+    cat_vars = ['age','sex',	cp	trtbps	chol	fbs	restecg	thalachh	exng	oldpeak	slp	caa]
     num_vars = []
