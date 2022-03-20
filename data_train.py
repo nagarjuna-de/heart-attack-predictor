@@ -16,20 +16,18 @@ from sklearn.svm           import SVC
 
 
 
-scaler,x_train, x_test, y_train,y_test = dp.get_data('heart.csv')
-
 def train_model(x_train,y_train):
 
-    svm = SVC(kernel="linear", random_state=0)
+    svm = SVC( random_state=0)
     svm = svm.fit(x_train,y_train)
 
-    lr = LogisticRegression(random_state=0)
+    lr = LogisticRegression(solver='liblinear', C=4.2, max_iter=5, penalty='l2', random_state=0)
     lr = lr.fit(x_train, y_train)
 
-    sklgbm = GradientBoostingClassifier(n_estimators=100, random_state=0)
+    sklgbm = GradientBoostingClassifier(n_estimators=250, learning_rate=0.15, max_depth=6, max_features='sqrt', random_state=0)
     sklgbm = sklgbm.fit(x_train, y_train)
 
-    catboost = CatBoostClassifier(n_estimators=100, random_state=0)
+    catboost = CatBoostClassifier(iterations=200, depth=9, learning_rate=0.2,bootstrap_type='Bernoulli', random_state=0)
     catboost = catboost.fit(x_train, y_train)
     
 
