@@ -12,8 +12,10 @@ def cli_predict():
     print('please submit the following details:')
     pth = input('Please enter the path of your csv file:')
     data = pd.read_csv(f"{pth}")
-    data = data.iloc[:5,1:]
+    data = data.iloc[11:16,1:]
+    print('0-means you are safe')
+    print('1-means consult the doctor/ take medication')
     print(catboost.predict(data))
-    print(sklgbm.predict(data))
+    #print(sklgbm.predict(data))
     
 cli_predict()    
